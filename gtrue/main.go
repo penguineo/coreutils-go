@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	version := "1"
 	for _, args := range os.Args[1:] {
 		switch args {
 		case "--help":
@@ -19,6 +20,9 @@ func main() {
 				"Your shell may have its own version of true, which usually supersedes the version described here.",
 				"Please refer to your shell's documentation for details about options it supports.",
 			)
+			os.Exit(0)
+		case "--version":
+			fmt.Println("gtrue Version:", version)
 			os.Exit(0)
 		default:
 			os.Exit(0)
