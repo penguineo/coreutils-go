@@ -11,7 +11,7 @@ type Command struct {
 }
 
 func main() {
-	version := "0.0.1"
+	version := "2"
 	command := Command{
 		help:    flag.Bool("help", false, "Display this help and exit"),
 		version: flag.Bool("version", false, "Output version information and exit"),
