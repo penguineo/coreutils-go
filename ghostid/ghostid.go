@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"net"
 	"os"
-	"strconv"
 )
 
 type Command struct {
@@ -14,7 +13,7 @@ type Command struct {
 }
 
 func main() {
-	version := "1"
+	version := "2"
 	command := Command{
 		help:    flag.Bool("help", false, "Display this help and exit"),
 		version: flag.Bool("version", false, "Output version information and exit"),
@@ -56,14 +55,4 @@ func main() {
 		)
 		return
 	}
-}
-
-func hexToBin(hex string) (string, error) {
-	ui, err := strconv.ParseUint(hex, 16, 64)
-	if err != nil {
-		fmt.Println("Error converting hex to bin: %w", err)
-		return "", err
-	}
-	format := fmt.Sprintf("%%0%db", len(hex)*4)
-	return fmt.Sprintf(format, ui), nil
 }
